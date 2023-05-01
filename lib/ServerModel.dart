@@ -1,3 +1,13 @@
+class PhotoModel{
+
+  late String title, url;
+  late int id;
+
+  PhotoModel({
+    required this.title,required this.url,required this.id
+  });
+}
+
 class ServerModel {
   ServerModel({
       this.userId, 
