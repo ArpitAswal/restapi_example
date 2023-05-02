@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:restapi_example/ServerModel.dart';
+import 'package:restapi_example/SignUp_API.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: HomeScreen()
+      home: SignUp()
+      //HomeScreen()
     );
   }
 }
@@ -85,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
             child: FutureBuilder(
                 future: getPhoto(),
                 builder: (context, AsyncSnapshot<List<PhotoModel>> snapshot){
-                  if(!snapshot.hasData || snapshot.hasError || snapshot.connectionState==true) {
+                  if(!snapshot.hasData || snapshot.hasError || snapshot.connectionState== ConnectionState.waiting) {
                     return Center(child: CircularProgressIndicator(
                         strokeWidth: 3,
                         valueColor: animate.drive(ColorTween(begin:Colors.blueAccent,end:Colors.purple))

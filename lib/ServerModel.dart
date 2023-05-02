@@ -33,6 +33,6 @@ class ServerModel {
     map['title'] = title;
     map['body'] = body;
     return map;
-  }
+   }
 
 }
