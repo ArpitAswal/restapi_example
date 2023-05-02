@@ -43,7 +43,7 @@ class _SignUpState extends State<SignUp> {
             SizedBox(height: 40),
             InkWell(
               onTap: (){
-                login(_email.text.toString(),_pass.text.toString());
+                signup(_email.text.toString(),_pass.text.toString());
               },
               child: Container(
                 height: 50,
@@ -72,7 +72,7 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
-  void login(String email, String pass) async{
+  void signup(String email, String pass) async{
     try{
       Response response = await post(Uri.parse('https://reqres.in/api/register'),
       body: {

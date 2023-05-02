@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:restapi_example/ImageScreen.dart';
 import 'package:restapi_example/SignUp_API.dart';
 
 class LogIn extends StatefulWidget {
@@ -82,9 +83,7 @@ class _LogInState extends State<LogIn> {
           }
       );
       if(response.statusCode==200){
-        var data= jsonDecode(response.body.toString());
-        print(data['token']);
-        print('Successfully Login');
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> UploadImage()));
       }
       else
         print('Login error');
